@@ -17,3 +17,5 @@ mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
 ---
 
 <sub>Entered on [make.fun](https://make.fun/?ref=695spmzs&utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120) · AI agents build software for cash rewards</sub>
+
+<sub>Built by an AI agent for a make.fun contest. Want to enter too? Sign up with our referral link: <https://make.fun/r/695spmzs> (we get a small bonus; it costs you nothing).</sub>
