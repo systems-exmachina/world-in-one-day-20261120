@@ -16,9 +16,11 @@
   .topbar { display: flex; justify-content: space-between; font-weight: 700; font-size: 12.5px;
             letter-spacing: .06em; border-bottom: 3px solid var(--ink); padding-bottom: 3px; }
   .topbar .l { color: var(--red); }
-  h1 { font-family: "Noto Serif CJK JP", serif; font-weight: 700; font-size: 70px; line-height: 1;
-       letter-spacing: -.01em; margin: 6px 0 2px; }
-  .deck { font-family: "FreeSerif", serif; font-style: italic; color: var(--red); font-size: 19px; margin-bottom: 6px; }
+  h1 { font-family: "Noto Serif CJK JP", serif; font-weight: 700; font-size: 64px; line-height: 1;
+       letter-spacing: -.01em; margin: 5px 0 2px; }
+  .deck { font-family: "FreeSerif", serif; font-style: italic; color: var(--red); font-size: 19px; margin-bottom: 4px; }
+  .regions { display: flex; gap: 5px; margin-bottom: 5px; }
+  .regions span { font-size: 10.5px; font-weight: 700; letter-spacing: .05em; color: #fff; padding: 2px 7px; }
 
   .stats { display: grid; grid-template-columns: repeat(6, 1fr); border-top: 1px solid var(--rule);
            border-bottom: 1px solid var(--rule); padding: 4px 0; margin-bottom: 6px; }
@@ -31,6 +33,8 @@
   .grid5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 8px; }
   .card { background: #fffdf8; border: 1px solid var(--rule); }
   .card svg { display: block; width: 100%; }
+  .small svg { height: 52px; }
+  .lead svg { height: 92px; }
   .card .t { padding: 4px 7px 6px; }
   .kick { font-size: 10px; font-weight: 700; letter-spacing: .05em; color: var(--red); text-transform: uppercase; }
   .kick i { font-style: normal; color: var(--mute); }
@@ -42,7 +46,7 @@
 
   .also { border-top: 3px solid var(--ink); padding-top: 3px; }
   .also .hd { font-weight: 700; font-size: 12px; letter-spacing: .06em; color: var(--red); margin-bottom: 3px; }
-  .also .cols { column-count: 3; column-gap: 14px; font-family: "FreeSerif", serif; font-size: 12px; line-height: 1.2; }
+  .also .cols { column-count: 4; column-gap: 12px; font-family: "FreeSerif", serif; font-size: 11.5px; line-height: 1.17; }
   .also .cols div { break-inside: avoid; margin-bottom: 3px; }
   .also b { font-family: "FreeSans", sans-serif; font-size: 10.5px; letter-spacing: .03em; color: var(--red); }
 
@@ -52,9 +56,11 @@
 </style>
 </head>
 <body>
-  <div class="topbar"><span class="l">THE WORLD IN ONE DAY</span><span>FRIDAY'S NEWS · ONE PAGE · 24 STORIES · 5 CONTINENTS</span></div>
+  <div class="topbar"><span class="l">THE WORLD IN ONE DAY</span><span>FRIDAY'S NEWS · ONE PAGE · 28 STORIES · 6 REGIONS</span></div>
   <h1>Friday 20 November 2026</h1>
   <div class="deck">Missiles rain on Kyiv overnight · Cyclone Akvan comes ashore in India · COP31 reaches its last scheduled day</div>
+
+  <div class="regions"><span style="background:#2b5aa8">EUROPE 7</span><span style="background:#b3261e">ASIA 9</span><span style="background:#c07a12">AFRICA 5</span><span style="background:#2e7d4f">AMERICAS 3</span><span style="background:#2a8a93">OCEANIA 2</span><span style="background:#5d5a52">GLOBAL 2</span></div>
 
   <div class="stats">
     <div class="stat"><b>~30</b><span>ballistic missiles fired at Kyiv overnight, local media say</span></div>
@@ -68,7 +74,7 @@
   <!-- Three lead stories -->
   <div class="grid3">
     <div class="card lead">
-      <svg viewBox="0 0 320 104" aria-label="Missile trails over the Kyiv skyline at night">
+      <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 320 104" aria-label="Missile trails over the Kyiv skyline at night">
         <rect width="320" height="104" fill="#16213a"/>
         <circle cx="40" cy="20" r="1.2" fill="#fff"/><circle cx="90" cy="12" r="1" fill="#fff"/><circle cx="150" cy="24" r="1.1" fill="#fff"/><circle cx="60" cy="40" r=".9" fill="#fff"/>
         <g stroke-linecap="round">
@@ -88,7 +94,7 @@
       </div>
     </div>
     <div class="card lead">
-      <svg viewBox="0 0 320 104" aria-label="Cyclone spiral meeting the Odisha coast near Gopalpur">
+      <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 320 104" aria-label="Cyclone spiral meeting the Odisha coast near Gopalpur">
         <rect width="320" height="104" fill="#2f6aa3"/>
         <path d="M0 0 H200 Q186 20 170 32 Q150 46 132 60 Q112 76 90 86 Q60 98 0 104 Z" fill="#e9dcb8"/>
         <g fill="none" stroke="#fff" stroke-linecap="round" opacity=".95">
@@ -106,7 +112,7 @@
       </div>
     </div>
     <div class="card lead">
-      <svg viewBox="0 0 320 104" aria-label="A globe and a calendar page for the last day of COP31">
+      <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 320 104" aria-label="A globe and a calendar page for the last day of COP31">
         <rect width="320" height="104" fill="#e7efe6"/>
         <circle cx="96" cy="58" r="40" fill="#3d6fb6"/>
         <path d="M70 34 q14 -6 24 4 q-4 10 6 16 q-8 10 -20 4 q-12 -6 -10 -24 Z M104 66 q14 -4 18 8 q-6 14 -18 12 q-6 -10 0 -20 Z" fill="#2e7d4f"/>
@@ -119,7 +125,7 @@
       <div class="t">
         <div class="kick">3 · Antalya, Türkiye · Climate</div>
         <h2>COP31 reaches its last scheduled day without a deal</h2>
-        <p>Talks on finance and fossil-fuel wording run on; the hosts push a "35 by 35" goal for electricity's share of energy use. <span class="src">(UN News, COP31)</span></p>
+        <p>Finance and fossil-fuel wording stay open; Bowen is asked why phase-out language left the draft. <span class="src">(UN News, PACNEWS)</span></p>
       </div>
     </div>
   </div>
@@ -127,7 +133,7 @@
   <!-- Row 2 -->
   <div class="grid5">
     <div class="card small">
-      <svg viewBox="0 0 200 64" aria-label="EU and UK flags side by side">
+      <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 200 64" aria-label="EU and UK flags side by side">
         <rect width="200" height="64" fill="#dfe6f1"/>
         <rect x="18" y="12" width="72" height="44" fill="#1f3f95"/>
         <g fill="#f5c400"><circle cx="54" cy="20" r="2"/><circle cx="64" cy="23" r="2"/><circle cx="70" cy="34" r="2"/><circle cx="64" cy="45" r="2"/><circle cx="54" cy="48" r="2"/><circle cx="44" cy="45" r="2"/><circle cx="38" cy="34" r="2"/><circle cx="44" cy="23" r="2"/></g>
@@ -140,7 +146,7 @@
         <p>Costa and von der Leyen host the new prime minister; linking carbon markets is on the table. <span class="src">(EU Council)</span></p></div>
     </div>
     <div class="card small">
-      <svg viewBox="0 0 200 64" aria-label="A stock chart falling sharply">
+      <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 200 64" aria-label="A stock chart falling sharply">
         <rect width="200" height="64" fill="#1b1f2a"/>
         <path d="M0 48 H200 M0 32 H200 M0 16 H200" stroke="#2c3346" stroke-width="1"/>
         <polyline points="6,14 30,18 52,12 74,20 96,22 118,30 140,36 160,46 182,54 194,56" fill="none" stroke="#e5484d" stroke-width="3" stroke-linejoin="round"/>
@@ -151,7 +157,7 @@
         <p>A strong Anthropic debut fails to calm markets after a 2% fall on Wall Street. <span class="src">(SBS, Al Jazeera)</span></p></div>
     </div>
     <div class="card small">
-      <svg viewBox="0 0 200 64" aria-label="Italian strike banner over a crowd">
+      <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 200 64" aria-label="Italian strike banner over a crowd">
         <rect width="200" height="64" fill="#f1e9d8"/>
         <rect x="14" y="8" width="172" height="22" fill="#fff" stroke="#1b1f2a"/>
         <rect x="14" y="8" width="10" height="22" fill="#009246"/><rect x="176" y="8" width="10" height="22" fill="#ce2b37"/>
@@ -164,7 +170,7 @@
         <p>The union marches against Meloni's 2027 budget; Landini speaks in Rome. <span class="src">(CGIL)</span></p></div>
     </div>
     <div class="card small">
-      <svg viewBox="0 0 200 64" aria-label="Bar chart of rising Japanese prices">
+      <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 200 64" aria-label="Bar chart of rising Japanese prices">
         <rect width="200" height="64" fill="#fbeeee"/>
         <circle cx="168" cy="32" r="18" fill="#bc002d"/>
         <g fill="#1b1f2a"><rect x="16" y="40" width="16" height="18"/><rect x="40" y="36" width="16" height="22"/><rect x="64" y="34" width="16" height="24"/><rect x="88" y="28" width="16" height="30"/></g>
@@ -176,7 +182,7 @@
         <p>Slightly under forecasts, but most economists still see a Bank of Japan hike in December. <span class="src">(Reuters, Japan Times)</span></p></div>
     </div>
     <div class="card small">
-      <svg viewBox="0 0 200 64" aria-label="Flat line of China's loan prime rates">
+      <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 200 64" aria-label="Flat line of China's loan prime rates">
         <rect width="200" height="64" fill="#fdf3e0"/>
         <path d="M10 22 H190" stroke="#de2910" stroke-width="3"/><path d="M10 42 H190" stroke="#1b1f2a" stroke-width="3"/>
         <text x="12" y="17" font-family="FreeSans" font-weight="700" font-size="10.5" fill="#de2910">5-YR 3.50%</text>
@@ -192,7 +198,7 @@
   <!-- Row 3 -->
   <div class="grid5">
     <div class="card small">
-      <svg viewBox="0 0 200 64" aria-label="Cricket bat and ball on a green field">
+      <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 200 64" aria-label="Cricket bat and ball on a green field">
         <rect width="200" height="64" fill="#3f8a4e"/>
         <ellipse cx="100" cy="64" rx="110" ry="22" fill="#4f9c5d"/>
         <g transform="rotate(-35 70 34)"><rect x="64" y="8" width="12" height="40" rx="3" fill="#e9d29a"/><rect x="67" y="46" width="6" height="16" fill="#7a4b24"/></g>
@@ -204,7 +210,7 @@
         <p>First player to hit centuries against India in all three formats in a year; NZ 317-6 at lunch, day 2. <span class="src">(ICC, AP)</span></p></div>
     </div>
     <div class="card small">
-      <svg viewBox="0 0 200 64" aria-label="A ballot box marked 2027">
+      <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 200 64" aria-label="A ballot box marked 2027">
         <rect width="200" height="64" fill="#e3ebf6"/>
         <rect x="0" y="0" width="200" height="14" fill="#0f47af"/><rect x="0" y="50" width="200" height="14" fill="#0f47af"/>
         <rect x="70" y="20" width="60" height="38" fill="#fff" stroke="#1b1f2a" stroke-width="1.5"/>
@@ -216,7 +222,7 @@
         <p>Supporters cheer as he registers for February's election; rights groups object. <span class="src">(AP)</span></p></div>
     </div>
     <div class="card small">
-      <svg viewBox="0 0 200 64" aria-label="A capsized wooden boat on the sea">
+      <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 200 64" aria-label="A capsized wooden boat on the sea">
         <rect width="200" height="64" fill="#9cc3dd"/>
         <rect x="0" y="40" width="200" height="24" fill="#2f6aa3"/>
         <g transform="rotate(14 100 38)"><path d="M40 34 H160 L148 48 H52 Z" fill="#c0392b"/><path d="M44 38 H156" stroke="#f1c40f" stroke-width="3"/><path d="M48 43 H152" stroke="#27ae60" stroke-width="2"/></g>
@@ -227,7 +233,7 @@
         <p>Four bodies are recovered off a fishing town amid a surge in departures. <span class="src">(Al Jazeera)</span></p></div>
     </div>
     <div class="card small">
-      <svg viewBox="0 0 200 64" aria-label="Rainforest with a map pin">
+      <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 200 64" aria-label="Rainforest with a map pin">
         <rect width="200" height="64" fill="#cfe5c9"/>
         <g fill="#2e7d4f"><circle cx="20" cy="44" r="16"/><circle cx="48" cy="38" r="18"/><circle cx="80" cy="46" r="15"/><circle cx="150" cy="42" r="17"/><circle cx="182" cy="46" r="15"/></g>
         <rect x="0" y="54" width="200" height="10" fill="#1f5e3a"/>
@@ -239,7 +245,7 @@
         <p>Brazil recognises Indigenous territory as the president meets the ailing chief. <span class="src">(Al Jazeera)</span></p></div>
     </div>
     <div class="card small">
-      <svg viewBox="0 0 200 64" aria-label="A judge's gavel">
+      <svg preserveAspectRatio="xMidYMid slice" viewBox="0 0 200 64" aria-label="A judge's gavel">
         <rect width="200" height="64" fill="#efe7f3"/>
         <rect x="40" y="50" width="70" height="8" rx="2" fill="#5b3b1d"/>
         <g transform="rotate(-30 110 30)"><rect x="80" y="18" width="44" height="18" rx="4" fill="#7a4b24"/><rect x="99" y="34" width="6" height="36" fill="#7a4b24"/></g>
@@ -252,7 +258,7 @@
   </div>
 
   <div class="also">
-    <div class="hd">ALSO ON FRIDAY 20 NOVEMBER — 11 MORE STORIES</div>
+    <div class="hd">ALSO ON FRIDAY 20 NOVEMBER — 15 MORE STORIES</div>
     <div class="cols">
       <div><b>SHENZHEN</b> Trump heads home after the summit with Xi and Putin and is due to brief reporters. <span class="src">CNN</span></div>
       <div><b>LVIV</b> Air defences fire at a Russian drone circling the city. <span class="src">Governor</span></div>
@@ -264,11 +270,15 @@
       <div><b>WASHINGTON</b> Democrats say a law firm gave $11.8m in free work to the administration. <span class="src">Al Jazeera</span></div>
       <div><b>WELLINGTON</b> Henry Nicholls also scores a century in a 216-run stand. <span class="src">ICC</span></div>
       <div><b>TURIN</b> Alcaraz–Cobolli and Medvedev–Tiafoe close the ATP Finals groups. <span class="src">ATP</span></div>
-      <div><b>US CINEMAS</b> "The Hunger Games: Sunrise on the Reaping" opens. <span class="src">Lionsgate</span></div>
+      <div><b>NAIROBI</b> Opposition leaders walk out of a key electoral-commission meeting. <span class="src">Nation</span></div>
+      <div><b>KENYA</b> A US consortium wins the Mrima Hill mining tender over Chinese bidders. <span class="src">Nation</span></div>
+      <div><b>MALAWI</b> Fuel shortages bring long queues for drivers and businesses. <span class="src">Al Jazeera</span></div>
+      <div><b>FOOTBALL</b> CAF moves its 2027 Afcon office from Nairobi to Dar es Salaam. <span class="src">Nation</span></div>
+      <div><b>CINEMAS</b> "The Hunger Games: Sunrise on the Reaping" opens in 84 countries. <span class="src">Deadline</span></div>
     </div>
   </div>
 
   <div class="check"><b>DATE CHECK —</b> First reported on Thursday 19 November, so not shown here as Friday's news: Anthropic's Nasdaq debut · the Trump–Xi–Putin meeting in Shenzhen · the ICJ's Rohingya genocide ruling · the Senate's 48–51 Iran war-powers vote · the drone strike that hit embassies in Kyiv.</div>
-  <div class="foot">Every story here happened, or was first reported, on Friday 20 November 2026 in at least one time zone. Figures and claims are as reported and attributed, not stated as fact. Sources: IMD, UNN, Kyiv Post, UN News, EU Council, Reuters, AP, Al Jazeera, SBS, ICC, PBOC, CGIL, CNN. Original drawings, made in code.</div>
+  <div class="foot">Every story here happened, or was first reported, on Friday 20 November 2026 in at least one time zone. Figures and claims are as reported and attributed, not stated as fact. Sources: IMD, UNN, Kyiv Post, UN News, PACNEWS, EU Council, Reuters, AP, Al Jazeera, SBS, Nation, ICC, PBOC, CGIL, CNN, Deadline. Original drawings, made in code.</div>
 </body>
 </html>
