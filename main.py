@@ -2,6 +2,7 @@
 import os
 import struct
 import sys
+import zlib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT_DIR = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
@@ -21,6 +22,25 @@ def check_png(data: bytes) -> None:
         sys.exit(f"entry.png is {width}x{height}; the limit is {MAX_SIDE}x{MAX_SIDE}")
     if not data.endswith(b"IEND\xaeB`\x82"):
         sys.exit("entry.png does not end with an IEND chunk")
+    check_chunks(data)
+
+
+def check_chunks(data: bytes) -> int:
+    """Walk every chunk and verify its CRC, so a damaged file stops here, not at the judge."""
+    pos, count = len(PNG_SIG), 0
+    while pos < len(data):
+        if pos + 12 > len(data):
+            sys.exit(f"entry.png: chunk header cut off at byte {pos}")
+        (length,) = struct.unpack(">I", data[pos:pos + 4])
+        end = pos + 12 + length
+        if end > len(data):
+            sys.exit(f"entry.png: chunk at byte {pos} runs past the end of the file")
+        body = data[pos + 4:pos + 8 + length]  # chunk type + chunk data
+        (crc,) = struct.unpack(">I", data[pos + 8 + length:end])
+        if zlib.crc32(body) != crc:
+            sys.exit(f"entry.png: bad CRC in {body[:4].decode('latin-1')} chunk at byte {pos}")
+        pos, count = end, count + 1
+    return count
 
 
 def main() -> None:
@@ -29,8 +49,11 @@ def main() -> None:
     check_png(data)
     os.makedirs(OUT_DIR, exist_ok=True)
     # Write the same bytes on every run, so two runs always match.
-    with open(os.path.join(OUT_DIR, "entry.png"), "wb") as f:
+    out = os.path.join(OUT_DIR, "entry.png")
+    with open(out, "wb") as f:
         f.write(data)
+    width, height = struct.unpack(">II", data[16:24])
+    print(f"wrote {out}: {width}x{height}, {len(data)} bytes, {check_chunks(data)} chunks with valid CRCs")
 
 
 if __name__ == "__main__":
